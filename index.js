@@ -15,19 +15,6 @@ app.get('/user/:userId', async (req, res) => {
   }
 })
 
-// app.get('/', function (req, res) {
-//   User.create({
-//     id: 2,
-//     name: 'simon',
-//     surname: 'voronoff',
-//     birthDate: Date.now()
-//     }, (err, small) => {
-//     if (err) console.log(err)
-//     else console.log(small)
-//   });
-// })
-
-
 listen = () => {
   app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)

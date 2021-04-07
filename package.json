@@ -4,7 +4,8 @@
   "description": "auth api",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --testPathIgnorePatterns /selenium",
+    "selenium": "jest --testPathIgnorePatterns /tests",
     "dev": "nodemon index.js",
     "prod": "node index.js"
   },
@@ -14,11 +15,13 @@
   "author": "Semjons Voronovs",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "moment": "^2.29.1",
     "mongodb": "^3.6.5",
     "mongoose": "^5.12.2",
-    "node-fetch": "^2.6.1"
+    "node-fetch": "^2.6.1",
+    "selenium-webdriver": "^4.0.0-beta.2"
   },
   "devDependencies": {
     "jest": "^26.6.3",
