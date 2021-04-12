@@ -5,8 +5,25 @@ const supertest = require('supertest');
 const app = require('../index');
 
 describe('GET Endpoints', () => {
+  afterAll(async(done) => {
+    try {
+      await mongoose.connection.close();
+      done()
+    } catch (error) {
+      console.log(error);
+      done()
+    }
+  })
+
   it('GET /api/user/:userId', async () => {
     try {
+        await new User({
+          id: 2,
+          name: 'Semjons',
+          surname: 'Voronovs',
+          birthDate: '2021-03-27'
+        }).save()
+
         const user_id = 2;
         const user = await User.findOne({ id: user_id });
         const res = await supertest(app).get(`/user/${user_id}`);
