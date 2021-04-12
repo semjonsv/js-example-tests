@@ -7,6 +7,7 @@ const app = require('../index');
 describe('GET Endpoints', () => {
   afterAll(async(done) => {
     try {
+      await User.deleteOne({ id: 2 })
       await mongoose.connection.close();
       done()
     } catch (error) {
