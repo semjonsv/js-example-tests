@@ -5,14 +5,12 @@ const supertest = require('supertest');
 const app = require('../index');
 
 describe('GET Endpoints', () => {
-  afterAll(async(done) => {
+  afterAll(async() => {
     try {
       await User.deleteOne({ id: 2 })
       await mongoose.connection.close();
-      done()
     } catch (error) {
       console.log(error);
-      done()
     }
   })
 

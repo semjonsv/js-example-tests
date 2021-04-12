@@ -22,6 +22,14 @@ describe('User Model Test', () => {
     })
   })
 
+  afterAll(async() => {
+    try {
+      await mongoose.connection.close();
+    } catch (error) {
+      console.log(error);
+    }
+  })
+
   it('create user', async () => {
     const validUser = new UserModel(userData)
     const savedUser = await validUser.save()
